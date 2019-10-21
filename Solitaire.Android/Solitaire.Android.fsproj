@@ -27,7 +27,7 @@
     <RestorePackages>true</RestorePackages>
     <OtherFlags>/warnon:1182</OtherFlags>
     <WarningLevel>4</WarningLevel>
-    <SelectedDevice>OnePlus A6000</SelectedDevice>
+    <SelectedDevice>Nexus_5X_API_28</SelectedDevice>
     <DefaultDevice>Nexus_5X_API_28</DefaultDevice>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
