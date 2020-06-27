@@ -1,4 +1,4 @@
-// Copyright 2018-2019 Fabulous contributors. See LICENSE.md for license.
+﻿// Copyright 2018-2019 Fabulous contributors. See LICENSE.md for license.
 namespace Solitaire
 
 open System.Diagnostics
@@ -131,17 +131,17 @@ module App =
             | Some p ->
                 if peg = p then Color.Green
                 else Color.Blue
-        View.Button(cornerRadius = 10, minimumWidthRequest = 10.,
-                    minimumHeightRequest = 10., backgroundColor = color,
+        View.Button(cornerRadius = 10 ,minimumWidth = 10.,
+                    minimumHeight = 10., backgroundColor = color,
                     command = (fun () -> dispatch (Select peg)))
-            .GridRow(peg.x - range.xmin).GridColumn(peg.y - range.ymin)
+            .Row(peg.x - range.xmin).Column(peg.y - range.ymin)
 
     let drawHole hole dispatch =
-        View.Button(cornerRadius = 10, minimumWidthRequest = 10.,
-                    minimumHeightRequest = 10., borderColor = Color.Black,
+        View.Button(cornerRadius = 10, minimumWidth = 10.,
+                    minimumHeight = 10., borderColor = Color.Black,
                     borderWidth = 2., backgroundColor = Color.Transparent,
                     command = (fun () -> dispatch (Move hole)))
-            .GridRow(hole.x - range.xmin).GridColumn(hole.y - range.ymin)
+            .Row(hole.x - range.xmin).Column(hole.y - range.ymin)
 
     let view (model : Model) dispatch =
         View.ContentPage
@@ -167,9 +167,9 @@ module App =
                                (verticalOptions = LayoutOptions.Center,
                                 horizontalOptions = LayoutOptions.Center,
                                 rowdefs = [ for i in 0..(range.xmax - range.xmin) ->
-                                                box "*" ],
+                                                Star ],
                                 coldefs = [ for j in 0..(range.ymax - range.ymin) ->
-                                                box "*" ],
+                                                Star ],
                                 children = [ for peg in model.pegs ->
                                                  drawPeg peg model.selected
                                                      dispatch ]
